@@ -8,56 +8,30 @@
 </head>
 <style>
     body{
-        background-color: blueviolet;
-    }
+    background-color: blueviolet;
+}
 </style>
 <body>
-    <button id="shareButton">Partager avec vos contacts</button>
-    <select id="shareOption">
-        <option value="email">Par email</option>
-        <option value="sms">Par SMS</option>
-        <option value="whatsapp">Par WhatsApp</option>
-        <option value="telegram">Par Telegram</option>
-        <!-- Ajoutez d'autres options de partage ici -->
-    </select>
+    <button id="shareButton">Partager cette page</button>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const shareButton = document.getElementById("shareButton");
-            const shareOption = document.getElementById("shareOption");
 
             shareButton.addEventListener("click", function () {
-                const selectedOption = shareOption.value;
                 const shareUrl = window.location.href;
-                const shareTitle = "Partagez ceci avec vos contacts";
-                let shareUrlValue = "";
+                const shareTitle = document.title;
 
-                switch (selectedOption) {
-                    case "email":
-                        shareUrlValue = `mailto:?subject=${encodeURIComponent(
-                            shareTitle
-                        )}&body=${encodeURIComponent(shareUrl)}`;
-                        break;
-                    case "sms":
-                        shareUrlValue = `sms:?&body=${encodeURIComponent(
-                            `${shareTitle}\n${shareUrl}`
-                        )}`;
-                        break;
-                    case "whatsapp":
-                        shareUrlValue = `whatsapp://send?text=${encodeURIComponent(
-                            `${shareTitle}\n${shareUrl}`
-                        )}`;
-                        break;
-                    case "telegram":
-                        shareUrlValue = `https://telegram.me/share/url?url=${encodeURIComponent(
-                            shareUrl
-                        )}&text=${encodeURIComponent(shareTitle)}`;
-                        break;
-                    // Ajoutez d'autres cas pour les options de partage supplémentaires
-                }
-
-                if (shareUrlValue) {
-                    window.location.href = shareUrlValue;
+                if (navigator.share) {
+                    navigator.share({
+                        title: shareTitle,
+                        url: shareUrl
+                    })
+                    .then(() => console.log("Partage réussi"))
+                    .catch((error) => console.error("Erreur lors du partage :", error));
+                } else {
+                    console.log("Partage non pris en charge par ce navigateur.");
+                    // Vous pouvez afficher un message à l'utilisateur indiquant que le partage n'est pas pris en charge.
                 }
             });
         });
