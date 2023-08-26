@@ -7,36 +7,76 @@ body {
     height: 100vh;
 }
 
-/* Styles de base pour le bouton */
+/* Styles pour le bouton attrayant */
 #shareButton {
-    background-color: #5271FF;
+    background: linear-gradient(45deg, #5271FF, #4058cc);
     color: white;
-    width: 45vw;
-    height: 50vh;
-    border: none;
-    padding: 15px 30px;
-    font-size: 20px;
+    padding: 182px 30px;
+    width: 37vw;
+    height: 14vh;
+    font-size: 40px;
     cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    border: none;
+    border-radius: 59px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Lorsque le bouton est survolé */
+/* Effet de survol */
 #shareButton:hover {
-    background-color: #4058cc;
+    transform: scale(1.05);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Lorsque le bouton est actif (cliqué) */
+/* Effet actif */
 #shareButton:active {
-    background-color: #2e45a4;
+    transform: scale(0.95);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 }
 
-  
-/* #shareButton{
-    display: flex;
-    position: center;
-    font-size: 500%;
-    width: 80vw;
-    height: 60vh;
-    justify-content: center;
-} */
+/* Media Queries pour la mise en page responsive */
+@media (max-width: 1200px) {
+    #shareButton {
+        padding: 150px 25px;
+        width: 45vw;
+        height: 16vh;
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 992px) {
+    #shareButton {
+        padding: 120px 20px;
+        width: 60vw;
+        height: 14vh;
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    #shareButton {
+        padding: 100px 15px;
+        width: 70vw;
+        height: 12vh;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    #shareButton {
+        padding: 80px 15px;
+        width: 80vw;
+        height: 10vh;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    #shareButton {
+        padding: 60px 15px;
+        width: 90vw;
+        height: 8vh;
+        font-size: 18px;
+    }
+}
+
