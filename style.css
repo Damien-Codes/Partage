@@ -1,0 +1,42 @@
+body {
+    background-color: blueviolet;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Styles de base pour le bouton */
+#shareButton {
+    background-color: #5271FF;
+    color: white;
+    width: 45vw;
+    height: 50vh;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* Lorsque le bouton est survolé */
+#shareButton:hover {
+    background-color: #4058cc;
+}
+
+/* Lorsque le bouton est actif (cliqué) */
+#shareButton:active {
+    background-color: #2e45a4;
+}
+
+  
+/* #shareButton{
+    display: flex;
+    position: center;
+    font-size: 500%;
+    width: 80vw;
+    height: 60vh;
+    justify-content: center;
+} */
