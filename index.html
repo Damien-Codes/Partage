@@ -7,9 +7,6 @@
     <title>Partage vers Contacts</title>
 </head>
 <style>
-    body{
-        background-color: blueviolet;
-    }
 </style>
 <body>
     <button id="shareButton">Partager avec vos contacts</button>
@@ -38,9 +35,13 @@
                     shareUrl
                 )}&text=${encodeURIComponent(shareTitle)}`;
 
-                // Vous pouvez ajouter d'autres liens de partage ici
+                // Ajouter le lien de partage pour les services de messagerie ici
+                const messengerShareUrl = `fb-messenger://share/?link=${encodeURIComponent(
+                    shareUrl
+                )}&app_id=123456789`; // Remplacez app_id par votre ID d'application Facebook
 
-                window.location.href = emailShareUrl; // Modifier pour le réseau souhaité
+                // Ouvrir le lien de partage pour WhatsApp par défaut
+                window.location.href = whatsappShareUrl;
             });
         });
     </script>
