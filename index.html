@@ -5,33 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.js">
     <title>Partage vers Contacts</title>
 </head>
 <body>
     <button id="shareButton">Partager cette page</button>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const shareButton = document.getElementById("shareButton");
-
-            shareButton.addEventListener("click", function () {
-                const customShareUrl = "https://damien-codes.github.io/New_Portefolio/index.html"; // Remplacez par l'URL spécifique
-
-                const shareTitle = document.title;
-
-                if (navigator.share) {
-                    navigator.share({
-                        title: shareTitle,
-                        url: customShareUrl // Utilisation de l'URL spécifique
-                    })
-                    .then(() => console.log("Partage réussi"))
-                    .catch((error) => console.error("Erreur lors du partage :", error));
-                } else {
-                    console.log("Partage non pris en charge par ce navigateur.");
-                    // Vous pouvez afficher un message à l'utilisateur indiquant que le partage n'est pas pris en charge.
-                }
-            });
-        });
-
-    </script>
 </body>
 </html>
